@@ -1,3 +1,17 @@
-{
+/* {
   "extends": "@react-native/typescript-config/tsconfig.json"
+} */
+{
+  "compilerOptions": {
+    "jsx": "react-native", // o "react" si estás usando React web
+    "allowJs": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true
+  }
 }
