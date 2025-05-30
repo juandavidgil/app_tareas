@@ -53,7 +53,10 @@ const InicioSesion = console.log(usuario, contraseña)
    
 
     return(
-        <ImageBackground source={require('./img/fondo.webp')} resizeMode="cover" style={styles.container} >
+        <ImageBackground source={require('../img/fondo1.jpg')} resizeMode="cover" style={styles.container} >
+     
+
+    
         <Text style={styles.label}>Usuario</Text>
         <TextInput style={styles.TextInput} 
             placeholder="escriba su usuario"
@@ -84,6 +87,7 @@ const InicioSesion = console.log(usuario, contraseña)
             </View>
         
         </ImageBackground>
+     
     )
 }
 

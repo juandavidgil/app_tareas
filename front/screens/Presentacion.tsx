@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
  }
 })
-function IniciarSesion(): React.JSX.Element{
+function Presentacion(): React.JSX.Element{
     return(
         <View style={styles.container}>
             <Text style={styles.textoBienvenida}>
@@ -54,4 +54,7 @@ function IniciarSesion(): React.JSX.Element{
     )
 }
 
-export default IniciarSesion
+export default Presentacion
+
+
+
