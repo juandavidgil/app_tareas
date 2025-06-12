@@ -1,88 +1,8 @@
 import { Dimensions, FlatList, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import React from "react";
+import RenderItem from "./funcional";
+import styles from './Style'
 
-const styles = StyleSheet.create({
-  contenedor:{
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  contenedorElementos:{
-    alignItems: 'center',
-    width: '100%',
-    height: '80%'
-  },
-  texto:{
-    fontSize: 40,
-    padding: '5%',
-    marginBottom: '5%'
-  },
- /*  imagenInicio:{
-    width: '50%',
-    height: '50%',
-    marginTop:'3%',
-    resizeMode: 'cover'
-  }, */
-  TextInput:{
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#black',
-    padding:2,
-    width: Dimensions.get("screen").width*0.6,
-    height: '60%',
-    marginLeft: '4%',
-    marginTop:'5%',
-    fontSize:20
-    },
-  botonAgregar:{
-    backgroundColor:'#7fee73',
-    borderRadius: 5,
-    borderWidth: 2,
-    width: '30%',
-    height: '60%',
-    marginTop: '5%',
-    marginRight:'3%',
-    alignItems: 'center',
-    justifyContent: 'center'
-    
-  },
-textoBoton:{
-  fontSize: 15,
-},
-Ctareas:{
-  width:'100%',
-  height:'10%',
-  flexDirection:'row',
-  justifyContent:'space-between',
-  gap: 10
-},
-renderizado:{
-  fontSize:40,
-  width:'100%',
-  height:'90%',
-  
-/*   backgroundColor:'#008f39' */
-},
-textoR:{
- fontSize:20,
- 
- marginLeft:'7%',
- marginBottom:'3%',
- /* backgroundColor: '#ff0000' */
-},
-dataTask:{
- paddingVertical: 20, 
- marginLeft: '10%',
-  width:'80%',
-  
-  borderBottomColor: "#6f6f6f",
-  borderBottomWidth: 2,
-/*   backgroundColor:'#ddd' */
-}
-
-})
 
 const tasks=[
   
@@ -99,7 +19,7 @@ const tasks=[
   },
   {
     titulo: "caminar",
-    done: false,
+    done: true,
     date: new Date()
   }
 ]
@@ -110,17 +30,32 @@ interface Task{
   date: Date
 }
 function renderItem({item}:{item:Task}){
-  return(  <View style={styles.dataTask}>
-
-    <Text style={styles.textoR}>{item.titulo}</Text>
+  return(  
+  <View style={styles.dataTask}>
+    <TouchableOpacity>
+    <Text style={item.done ? styles.textDone : styles.textoRenderizado}>{item.titulo}</Text>
+    <Text>{item.date.toDateString()}</Text>
+    </TouchableOpacity>
+    {
+      item.done &&
+      (
+        <TouchableOpacity style={styles.botonEliminar}>
+          <Text style={styles.textoEliminar}>
+            Eliminar
+          </Text>
+        </TouchableOpacity>
+      )
+    }
   </View>
   )
 }
 
 function Tareas(): React.JSX.Element {
+  const markDone=()=>{}
+  const deleteF=()=>{}
   return(
   
- <View style={styles.contenedor}>
+ <View style={styles.container}>
     <Text style={styles.texto}>Mis Tareas</Text>
         <View style={styles.contenedorElementos}>
           <View style={styles.Ctareas}>
@@ -129,12 +64,17 @@ function Tareas(): React.JSX.Element {
               <Text style={styles.textoBoton}>Agregar</Text>
             </TouchableOpacity>
           </View>
-          
             <FlatList style={styles.renderizado}
-              renderItem={renderItem}
+              renderItem={({item})=>(
+              <RenderItem
+              item={item}  
+              markDone={markDone}
+              deleteF={deleteF}
+              />
+              )}
               data={tasks}
             />
-    {/* <Image source={require('../img/fondo.webp')} style={styles.imagenInicio}/> */}
+  {/*   <Image source={require('../img/fondo1.jpg')} style={styles.imagenInicio}/> */}
       </View>
           
           

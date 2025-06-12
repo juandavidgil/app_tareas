@@ -1,52 +1,9 @@
 import React,{useState} from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, TextInput,TouchableOpacity, ImageBackground } from "react-native";
+import styles from "./Style";
 
-const styles = StyleSheet.create({
- container: {
-    width: "100%",
-    height: "100%",
-    /* backgroundColor:'#0096c7', */
-    alignItems: "center",
-    justifyContent: "center",
-    opacity:0.8
-},
-label:{
-    fontSize: 25,
-    margin: '5%',
-    color: '#ade8f4'
-},
-TextInput:{
-    padding: '2%',
-    borderBottomWidth: 3,
-    borderLeftWidth: 3,
-    borderRadius: 10,
-    width: '60%',
-    marginBottom: '10%',
-    backgroundColor: '#ade8f4',
-},
-botonInciarSesion:{
-    padding:'4%',
-    borderWidth: 1,
-    borderRadius: 30,
-    width: '40%',
-    alignItems: 'center',
-    backgroundColor: '#caf0f8',
-    margin: '3%'
-},
-botones:{
-    width: '100%',
-    alignItems: 'center',
-    marginTop: '20%',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    
 
-    
-}
-})
-
-function InciarSesion (): React.JSX.Element{
+function IniciarSesion (): React.JSX.Element{
     const [usuario, setUsuario] = useState('')
     const [contraseña, setContraseña] = useState('')
 const InicioSesion = console.log(usuario, contraseña)
@@ -92,4 +49,4 @@ const InicioSesion = console.log(usuario, contraseña)
 }
 
 
-export default InciarSesion
+export default IniciarSesion

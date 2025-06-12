@@ -3,7 +3,10 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
+import Presentacion from './front/screens/Presentacion';
+import Registro from './front/screens/Registro';
+import IniciarSesion from './front/screens/IniciarSesion';
+import Tareas from './front/screens/Tareas';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => Registro);
